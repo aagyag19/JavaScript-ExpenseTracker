@@ -1,0 +1,59 @@
+body{
+    display: grid;
+    place-items: center;
+
+}
+
+
+.main{
+    padding:20px;
+    border:1px solid black;
+    border-radius: 5px;
+}
+
+
+.heading{
+    text-align: center;
+}
+
+
+.input{
+    display:flex;
+    gap:20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.input input{
+    padding:8px;
+}
+
+.input select{
+    padding:10px;
+}
+
+
+.input button{
+    padding:10px;
+    color:white;
+    background-color: green;
+    border: none;
+    border-radius:5px;
+}
+
+
+table{
+    width:100%;
+    margin-bottom: 20px;
+}
+
+
+.tr,th,td{
+    border:1px solid gray;
+    padding:15px;
+}
+
+.total{
+    display:flex;
+    /* flex-direction: column; */
+    justify-content:right;
+}
