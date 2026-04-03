@@ -40,6 +40,9 @@ body{
     border-radius:5px;
 }
 
+button:hover{
+    cursor:pointer;
+}
 
 table{
     width:100%;
@@ -54,6 +57,7 @@ table{
 
 .total{
     display:flex;
-    /* flex-direction: column; */
-    justify-content:right;
+    flex-direction: column;
+    align-items: flex-end;
+
 }
