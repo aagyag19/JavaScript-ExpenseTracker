@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="exp.js"></script>
+    <title>Expense Tracker</title>
+    <script src="exp.js" defer></script>
     <link rel="stylesheet" href="exp.css">
 </head>
 <body>
     <div class="main">
         <header class="heading">
             <h1>Expense Tracker</h1>
-            <p id="message">Fill in the details of your expense.</p>
         </header>
 
-        <section class="input">
-            <input type="text" id="name" placeholder="Expense Name">
-            <input type="text" id="amt" placeholder="Amount">
-
-            <select id="category">
+        <form id="expenseForm" onsubmit="add(event)" class="input">
+            <input type="text" id="name" placeholder="Expense Name" required>
+            <input type="number" id="amt" placeholder="Amount" required>
+            <select id="category" required>
                 <option value="">Select Category</option>
                 <option value="Transport">Transport</option>
                 <option value="Foods">Foods</option>
@@ -26,12 +24,9 @@
                 <option value="Gifts">Gifts</option>
                 <option value="Electronics">Electronics</option>
             </select>
-
-            <input type="date" id="date">
-
-            <button type="button" onclick="add()">Add Expense</button>
-
-        </section>
+            <input type="date" id="date" required>
+            <button type="submit">Add Expense</button>
+        </form>
 
         <section class="table">
             <table cellspacing="0" id="output">
@@ -50,19 +45,43 @@
         <section class="total">
             <span id="totalDisplay">Total: $0</span>
             <div class="filter">
-                Filter by Category: <select id="filterCategory" onchange="filterFunction()">
-                <option value="">All</option>
-                <option value="Transport">Transport</option>
-                <option value="Foods">Foods</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Gifts">Gifts</option>
-                <option value="Electronics">Electronics</option>
-            </select>
+                Filter by Category: 
+                <select id="filterCategory" onchange="filterFunction()">
+                    <option value="">All</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Foods">Foods</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Gifts">Gifts</option>
+                    <option value="Electronics">Electronics</option>
+                </select>
             </div>
         </section>
-
     </div>
 
+
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Edit Expense</h2>
+    <form id="editForm" onsubmit="saveEdit(event)">
+      <input type="text" id="editName" placeholder="Expense Name" required>
+      <input type="number" id="editAmt" placeholder="Amount" required>
+      <select id="editCategory" required>
+        <option value="">Select Category</option>
+        <option value="Transport">Transport</option>
+        <option value="Foods">Foods</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Gifts">Gifts</option>
+        <option value="Electronics">Electronics</option>
+      </select>
+      <input type="date" id="editDate" required>
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
 </div>
+
+
+
+
 </body>
 </html>
